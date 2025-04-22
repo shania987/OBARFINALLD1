@@ -126,12 +126,9 @@
     <p>Discover a new recipe every day.</p>
     <div class="sub-section">
       <h3>Today's Pick</h3>
-
-      <h3>Today's Pick</h3>
 <ul>
   <li><button onclick="showImage('spaghetti carbonara.jpg')">Spaghetti Carbonara</button></li>
   <li><button onclick="showImage('sweet-sour-chicken.jpg')">Sweet and Sour Chicken</button></li>
-  <li><button onclick="showImage('vegan-buddha-bowl.jpg')">Vegan Buddha Bowl</button></li>
   <li><button onclick="showImage('margherita-pizza.jpg')">Margherita Pizza</button></li>
   <li><button onclick="showImage('beef-vegetable-skillet.jpg')">Beef and Vegetable Skillet</button></li>
   <li><button onclick="showImage('chocolate-lava-cakes.jpg')">Chocolate Lava Cakes</button></li>
@@ -143,7 +140,7 @@
 
 <!-- Image display area -->
 <div id="image-container" style="margin-top: 20px;">
-  <img id="recipe-image" src="" alt="Recipe Image" style="max-width: 100%; height: auto; display: none; border-radius: 10px;">
+  <img id="recipe-image" src="" alt="Recipe Image" style="max-width: 20%; height: auto; display: none; border-radius: 10px;">
 </div>
 <script>
   function showImage(imageFileName) {
@@ -153,18 +150,6 @@
   }
 </script>
 
-      <ul>
-        <li>Spaghetti Carbonara</li>
-        <li>Sweet and Sour Chicken</li>
-        <li>Vegan Buddha Bowl</li>
-        <li>Margherita Pizza</li>
-        <li>Beef and Vegetable Skillet</li>
-        <li>Chocolate Lava Cakes</li>
-        <li>Shakshuka</li>
-        <li>Classic Chocolate Chip Cookies</li>
-        <li>Chicken Alfredo</li>
-        <li>Mediterranean Hummus and Veggie Wraps</li>
-      </ul>
     </div>
     <div class="sub-section">
       <h3>Recipe Round-Up</h3>
@@ -182,23 +167,49 @@
     <p>Explore different recipe categories.</p>
     <div class="sub-section">
       <h3>Dinner</h3>
-      <ul>
-        <li>Lemon Herb Roasted Chicken</li>
-        <li>Spaghetti Bolognese</li>
-        <li>Chicken Fajitas</li>
-        <li>Beef Stroganoff</li>
-        <li>Vegetable Stir-Fry</li>
-      </ul>
+        <ul>
+  <li><button onclick="showDinnerImage('Lemon-Herb-Roasted-Chicken.jpg')">Lemon Herb Roasted Chicken</button></li>
+  <li><button onclick="showDinnerImage('Spaghetti-Bolognese.jpg')">Spaghetti Bolognese</button></li>
+  <li><button onclick="showDinnerImage('Chicken-Fajitas.jpg')">Chicken Fajitas</button></li>
+  <li><button onclick="showDinnerImage('Beef-Stroganoff.jpg')">Beef Stroganoff</button></li>
+  <li><button onclick="showDinnerImage('Vegetable-Stir-Fry.jpg')">Vegetable Stir-Fry</button></li>
+</ul>
+<script>
+  function showDinnerImage(imageFileName) {
+    const image = document.getElementById('dinner-recipe-image');
+    image.src = imageFileName;
+    image.style.display = 'block';
+  }
+</script>
+
+<!-- Breakfast Image Display Area -->
+<div id="dinner-image-container" style="margin-top: 20px;">
+  <img id="dinner-recipe-image" src="" alt="Dinner Recipe Image" style="max-width: 20%; height: auto; display: none; border-radius: 10px;">
+</div>
     </div>
     <div class="sub-section">
       <h3>Breakfast</h3>
-      <ul>
-        <li>Fluffy Pancakes</li>
-        <li>Avocado Toast with Eggs</li>
-        <li>Smoothie Bowl</li>
-        <li>Egg and Cheese Breakfast Burrito</li>
-        <li>Overnight Oats with Berries</li>
-      </ul>
+     <ul>
+        <ul>
+          <li><button onclick="showBreakfastImage('Fluffy-Pancakes.jpg')">Fluffy Pancakes</button></li>
+          <li><button onclick="showBreakfastImage('Avocado Toast with Eggs.jpg')">Avocado Toast with Eggs</button></li>
+          <li><button onclick="showBreakfastImage('Smoothie Bowl.jpg')">Smoothie Bowl</button></li>
+          <li><button onclick="showBreakfastImage('Egg and Cheese Breakfast Burrito.jpg')">Egg and Cheese Breakfast Burrito</button></li>
+  
+        </ul>
+        <script>
+          function showBreakfastImage(imageFileName) {
+            const image = document.getElementById('breakfast-recipe-image');
+            image.src = imageFileName;
+            image.style.display = 'block';
+          }
+        </script>
+        
+        <!-- Breakfast Image Display Area -->
+        <div id="breakfast-image-container" style="margin-top: 20px;">
+          <img id="breakfast-recipe-image" src="" alt="Breakfast Recipe Image" style="max-width: 20%; height: auto; display: none; border-radius: 10px;">
+        </div>
+      
     </div>
     <div class="sub-section">
       <h3>Lunch</h3>
