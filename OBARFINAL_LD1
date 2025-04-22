@@ -64,8 +64,8 @@
   </div>
 
   <script>
-    const correctUsername = "admin";
-    const correctPassword = "password123";
+    const correctUsername = "admin123";
+    const correctPassword = "admin123";
 
     const loginBtn = document.getElementById("loginBtn");
     const message = document.getElementById("message");
@@ -83,7 +83,7 @@
         message.style.color = "green";
         message.innerText = "Login successful!";
         // Optional: redirect to another page
-        // window.location.href = "dashboard.html";
+        // window.location.href = "LD2_OBAR_SHANIA_SHELLEY_G.html";
       } else {
         message.style.color = "red";
         lockoutUser(); // initiate lockout
