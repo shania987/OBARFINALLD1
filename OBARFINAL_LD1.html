@@ -1,0 +1,178 @@
+       <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #c059a8, #8b66b6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #4d98ed;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      display: none;
+    }
+
+    .container.active {
+      display: block;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #e148f2;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: rgb(219, 71, 209);
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+
+    .message {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .homepage-content {
+      text-align: center;
+    }
+
+    .logout-btn {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: crimson;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .logout-btn:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN SECTION -->
+  <div class="container active" id="loginSection">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <!-- HOMEPAGE SECTION -->
+  <div class="container" id="homeSection">
+    <div class="homepage-content">
+      <h2>Welcome, Shania!</h2>
+      <p>You are successfully logged in.</p>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+  
+
+  <script>
+    // ✅ Set your desired credentials
+    const correctUsername = "shaniald1";
+    const correctPassword = "shania";
+
+    const loginSection = document.getElementById("loginSection");
+    const homeSection = document.getElementById("homeSection");
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const message = document.getElementById("message");
+
+    let lockout = false;
+    let countdown;
+
+    loginBtn.addEventListener("click", () => {
+      if (lockout) return;
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username === correctUsername && password === correctPassword) {
+        message.style.color = "green";
+        message.innerText = "Login successful!";
+        setTimeout(() => {
+          loginSection.classList.remove("active");
+          homeSection.classList.add("active");
+        }, 1000);
+      } else {
+        startLockout();
+      }
+      window.location.href = "LD2_OBAR_SHANIA_SHELLEY_G.html"
+    });
+
+    logoutBtn.addEventListener("click", () => {
+      homeSection.classList.remove("active");
+      loginSection.classList.add("active");
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      message.innerText = "";
+    });
+
+    function startLockout() {
+      lockout = true;
+      loginBtn.disabled = true;
+      let seconds = 10;
+
+      message.style.color = "red";
+      message.innerText = `Incorrect credentials. Try again in ${seconds} seconds...`;
+
+      countdown = setInterval(() => {
+        seconds--;
+        if (seconds > 0) {
+          message.innerText = `Try again in ${seconds} seconds...`;
+        } else {
+          clearInterval(countdown);
+          loginBtn.disabled = false;
+          lockout = false;
+          message.innerText = "";
+        }
+      }, 1000);
+    }
+    
+     
+  </script>
+              
+</body>
+
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Recipe</title>
+  <style>
+    /* Set the background image and general styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url(DINNER.webp); /* Add your image path here */
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+      padding: 10px;
+      text-align: center;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5); /* Slightly darken the section background for readability */
+      margin: 20px 0;
+    }
+
+    h1, h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    /* Sub-section Styling */
+    .sub-section {
+      padding: 20px 0;
+      text-align: left;
+      margin: 10px 0;
+    }
+
+    .sub-section h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .sub-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sub-section ul li {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 600px) {
+      .navbar ul li {
+        display: block;
+        margin: 10px 0;
+      }
+
+      h1, h2 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#recipe-of-the-day">Recipe of the Day</a></li>
+      <li><a href="#recipe">Recipe</a></li>
+      <li><a href="#in-the-kitchen">In the Kitchen</a></li>
+      <li><a href="#table-talk">Table Talk</a></li>
+      <li><a href="#holidays-and-seasons">Holidays and Seasons</a></li>
+      <li><a href="#about-us">About Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Sections -->
+  <section id="home" class="section">
+    <h1>Welcome to Simple Recipe</h1>
+    <p>Your go-to source for delicious and easy-to-make recipes.</p>
+  </section>
+
+  <section id="recipe-of-the-day" class="section">
+    <h2>Recipe of the Day</h2>
+    <p>Discover a new recipe every day.</p>
+    <div class="sub-section">
+      <h3>Today's Pick</h3>
+
+      <h3>Today's Pick</h3>
+<ul>
+  <li><button onclick="showImage('spaghetti carbonara.jpg')">Spaghetti Carbonara</button></li>
+  <li><button onclick="showImage('sweet-sour-chicken.jpg')">Sweet and Sour Chicken</button></li>
+  <li><button onclick="showImage('vegan-buddha-bowl.jpg')">Vegan Buddha Bowl</button></li>
+  <li><button onclick="showImage('margherita-pizza.jpg')">Margherita Pizza</button></li>
+  <li><button onclick="showImage('beef-vegetable-skillet.jpg')">Beef and Vegetable Skillet</button></li>
+  <li><button onclick="showImage('chocolate-lava-cakes.jpg')">Chocolate Lava Cakes</button></li>
+  <li><button onclick="showImage('shakshuka.jpg')">Shakshuka</button></li>
+  <li><button onclick="showImage('choco-chip-cookies.jpg')">Classic Chocolate Chip Cookies</button></li>
+  <li><button onclick="showImage('chicken-alfredo.jpg')">Chicken Alfredo</button></li>
+  <li><button onclick="showImage('hummus-veggie-wraps.jpg')">Mediterranean Hummus and Veggie Wraps</button></li>
+</ul>
+
+<!-- Image display area -->
+<div id="image-container" style="margin-top: 20px;">
+  <img id="recipe-image" src="" alt="Recipe Image" style="max-width: 100%; height: auto; display: none; border-radius: 10px;">
+</div>
+<script>
+  function showImage(imageFileName) {
+    const image = document.getElementById('recipe-image');
+    image.src = imageFileName;
+    image.style.display = 'block';
+  }
+</script>
+
+      <ul>
+        <li>Spaghetti Carbonara</li>
+        <li>Sweet and Sour Chicken</li>
+        <li>Vegan Buddha Bowl</li>
+        <li>Margherita Pizza</li>
+        <li>Beef and Vegetable Skillet</li>
+        <li>Chocolate Lava Cakes</li>
+        <li>Shakshuka</li>
+        <li>Classic Chocolate Chip Cookies</li>
+        <li>Chicken Alfredo</li>
+        <li>Mediterranean Hummus and Veggie Wraps</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Recipe Round-Up</h3>
+      <ul>
+        <li>Breakfast Ideas</li>
+        <li>Comfort Food Recipes</li>
+        <li>Seasonal Recipes</li>
+        <li>Healthy Recipes</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="recipe" class="section">
+    <h2>Recipe</h2>
+    <p>Explore different recipe categories.</p>
+    <div class="sub-section">
+      <h3>Dinner</h3>
+      <ul>
+        <li>Lemon Herb Roasted Chicken</li>
+        <li>Spaghetti Bolognese</li>
+        <li>Chicken Fajitas</li>
+        <li>Beef Stroganoff</li>
+        <li>Vegetable Stir-Fry</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Breakfast</h3>
+      <ul>
+        <li>Fluffy Pancakes</li>
+        <li>Avocado Toast with Eggs</li>
+        <li>Smoothie Bowl</li>
+        <li>Egg and Cheese Breakfast Burrito</li>
+        <li>Overnight Oats with Berries</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Lunch</h3>
+      <ul>
+        <li>Grilled Chicken Salad</li>
+        <li> Veggie and Hummus Wrap</li>
+        <li>Caprese Sandwich</li>
+        <li>Quinoa Bowl with Roasted Vegetables</li>
+        <li>Chicken Caesar Wrap</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Desserts</h3>
+      <ul>
+        <li>Chocolate Lava Cakes</li>
+        <li>Cheesecake with Strawberry Topping</li>
+        <li>Banoffee Pie</li>
+        <li>Chocolate Chip Cookies</li>
+        <li>Lemon Meringue Pie</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Appetizers</h3>
+      <ul>
+        <li>Bruschetta with Tomato and Basil</li>
+        <li>Stuffed Mushrooms</li>
+        <li>Guacamole with Tortilla Chips</li>
+        <li>Caprese Skewers</li>
+        <li>Deviled Eggs</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="in-the-kitchen" class="section">
+    <h2>In the Kitchen</h2>
+    <p>Explore the kitchen essentials and tips.</p>
+    <div class="sub-section">
+      <h3>Explore</h3>
+      <ul>
+        <li>Ingredient Guide</li>
+        <li>Best Ingredients</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Best Kitchen Items</h3>
+      <ul>
+        <li>Equipment Guide</li>
+        <li>Cleaning & Organization</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Tips and Techniques</h3>
+      <ul>
+        <li>Cooking Techniques</li>
+        <li>Kitchen Hacks</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="table-talk" class="section">
+    <h2>Table Talk</h2>
+    <p>Join discussions on food trends and cooking news.</p>
+    <div class="sub-section">
+      <h3>Most Recent</h3>
+      <ul>
+        <li>News and Trends</li>
+        <li>Features</li>
+        <li>Voices</li>
+        <li>Groceries</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="holidays-and-seasons" class="section">
+    <h2>Holidays and Seasons</h2>
+    <p>Seasonal recipes for every occasion!</p>
+    <div class="sub-section">
+      <h3>Soups and Stews</h3>
+      <ul>
+        <li>Winter</li>
+        <li>Spring</li>
+        <li>Summer</li>
+        <li>Fall</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Easy Salads</h3>
+      <ul> 
+        <li>Watermelon Feta Salad</li>
+        <li>Spinach & Strawberry Salad</li>
+        <li>Simple Cucumber Salad</li>
+        <li>Avocado & Black Bean Salad</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Vegetarian Dinner</h3>
+      <ul>
+        <li>Veggie Burger with Sweet Potato Fries</li>
+        <li>Avocado Toast with Roasted Vegetables</li>
+        <li>Mushroom Risotto</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about-us" class="section">
+    <h2>About Us</h2>
+    <p>Learn more about our story and team.</p>
+    <div class="sub-section">
+      <h3>Who We Are</h3>
+      <ul>
+        <li>At Simple Recipe, we are passionate home cooks and food enthusiasts dedicated to sharing the joy of cooking through easy-to-follow and delicious recipes.<br>
+        We believe that cooking should be accessible to everyone, regardless of skill level or dietary restrivtions, and we strive to provide ispiring and simple meal<br>
+      ideas that bring people together around the table.</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Our History</h3>
+      <ul>
+        <li>"Simple Recipe" was lunched in 2025 with the goal of sharing easy-to-follow and delicious recipes with home cooks of all skill levels.<br>
+        Since its humble begginings, the website has grown to become a trusted resource for simple yet satisfying meal ideas, with loyal community<br>
+      of visitors who appreciate the site's focus on accessibility and flavor.</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Recipe Development and Testing</h3>
+      <ul>
+        <li>Process</li>
+        <li>Quality Assurance</li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <h3>Contact Us</h3>
+      <ul>
+        <li>Email</li>
+        <li>Social Media</li>
+        <li>Phone Number</li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    // Basic JavaScript to handle smooth scrolling on click
+    const navbarLinks = document.querySelectorAll('.navbar ul li a');
+
+    navbarLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        window.scrollTo({
+          top: targetSection.offsetTop - 50, // Adjust for navbar height
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+            
+</body>
+</html>

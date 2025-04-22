@@ -1,0 +1,116 @@
+ v   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 300px;
+    }
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: orange;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+    .message {
+      margin-top: 10px;
+      text-align: center;
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button id="loginBtn">Login</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const correctUsername = "admin";
+    const correctPassword = "password123";
+
+    const loginBtn = document.getElementById("loginBtn");
+    const message = document.getElementById("message");
+
+    let lockout = false;
+    let countdownInterval;
+
+    loginBtn.addEventListener("click", function () {
+      if (lockout) return;
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === correctUsername && password === correctPassword) {
+        message.style.color = "green";
+        message.innerText = "Login successful!";
+        // Optional: redirect to another page
+        // window.location.href = "dashboard.html";
+      } else {
+        message.style.color = "red";
+        lockoutUser(); // initiate lockout
+      }
+    });
+
+    function lockoutUser() {
+      lockout = true;
+      loginBtn.disabled = true;
+
+      let timeLeft = 10;
+
+      message.innerText = `Incorrect credentials. Try again in ${timeLeft} seconds...`;
+
+      countdownInterval = setInterval(() => {
+        timeLeft--;
+
+        if (timeLeft > 0) {
+          message.innerText = `Try again in ${timeLeft} seconds...`;
+        } else {
+          clearInterval(countdownInterval);
+          lockout = false;
+          loginBtn.disabled = false;
+          message.innerText = "";
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
